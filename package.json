@@ -1,0 +1,16 @@
+{
+  "name": "securefile",
+  "version": "1.0.0",
+  "description": "Minimalistic File Encryption and Decryption",
+  "main": "dist/securefile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "typescript": "^5.5.4"
+  }
+}
