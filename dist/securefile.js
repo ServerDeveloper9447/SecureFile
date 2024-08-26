@@ -15,6 +15,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 var _SecureFile_instances, _SecureFile_key, _SecureFile_encryptString, _SecureFile_decryptString;
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SecureFile = void 0;
 const crypto_1 = __importDefault(require("crypto"));
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
@@ -79,6 +80,7 @@ class SecureFile {
         return rd;
     }
 }
+exports.SecureFile = SecureFile;
 _SecureFile_key = new WeakMap(), _SecureFile_instances = new WeakSet(), _SecureFile_encryptString = function _SecureFile_encryptString(text, key, iv) {
     const cipher = crypto_1.default.createCipheriv('aes-256-cbc', key, iv);
     let encrypted = cipher.update(text, 'utf8', 'hex');
@@ -90,4 +92,3 @@ _SecureFile_key = new WeakMap(), _SecureFile_instances = new WeakSet(), _SecureF
     decrypted += decipher.final('utf8');
     return decrypted;
 };
-exports.default = SecureFile;
