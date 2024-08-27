@@ -1,6 +1,6 @@
 {
   "name": "securefile",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Minimalistic File Encryption and Decryption",
   "main": "dist/securefile.js",
   "scripts": {
