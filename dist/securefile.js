@@ -81,10 +81,10 @@ class SecureFile {
         return rd;
     }
     encryptMany(fileData) {
-        return fileData.map(file => this.encrypt(file.filePath, { overwrite: file === null || file === void 0 ? void 0 : file.overwrite, rename: file === null || file === void 0 ? void 0 : file.rename }));
+        return fileData.map(file => this.encrypt(file.filePath, { overwrite: (file === null || file === void 0 ? void 0 : file.overwrite) === true, rename: (file === null || file === void 0 ? void 0 : file.rename) === true }));
     }
     decryptMany(fileData) {
-        return fileData.map(file => this.decrypt(file.filePath, file === null || file === void 0 ? void 0 : file.overwrite));
+        return fileData.map(file => this.decrypt(file.filePath, (file === null || file === void 0 ? void 0 : file.overwrite) === true));
     }
     encryptFolder(folderPath) {
         const files = fs_1.default.readdirSync(folderPath, { withFileTypes: true });

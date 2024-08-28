@@ -32,3 +32,9 @@ secure.decryptMany([{filePath: string, overwrite: boolean}],...)
 // or
 secure.decryptFolder('<folder_path>') // decrypts each file inside a folder
 ```
+
+### Use from Terminal
+```sh
+encrypt <key> fileName
+decrypt <key> fileName
+```

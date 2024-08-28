@@ -8,7 +8,7 @@ export class SecureFile {
     #key: Buffer;
     #algorithm: (typeof ciphers)[number];
     
-    constructor(key:string, algorithm: string = 'aes-256-cbc', keyHash: (typeof hashes)[number] = 'sha256') {
+    constructor(key:string, algorithm: (typeof ciphers)[number] = 'aes-256-cbc', keyHash: (typeof hashes)[number] = 'sha256') {
         this.#key = crypto.createHash(keyHash).update(key).digest()
         this.#algorithm = algorithm
     }
@@ -88,11 +88,11 @@ export class SecureFile {
     }
 
     encryptMany(fileData: {filePath: string, overwrite?: boolean, rename?: boolean}[]) {
-        return fileData.map(file => this.encrypt(file.filePath, {overwrite: file?.overwrite, rename: file?.rename}))
+        return fileData.map(file => this.encrypt(file.filePath, {overwrite: file?.overwrite === true, rename: file?.rename === true}))
     }
 
     decryptMany(fileData: {filePath: string, overwrite?: boolean}[]) {
-        return fileData.map(file => this.decrypt(file.filePath, file?.overwrite))
+        return fileData.map(file => this.decrypt(file.filePath, file?.overwrite === true))
     }
 
     encryptFolder(folderPath: string) {
